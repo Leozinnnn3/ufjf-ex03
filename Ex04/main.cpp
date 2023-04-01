@@ -4,16 +4,10 @@ using namespace std;
 
 float soma(int n, float vet[])
 {
-    float resultado;
-    if(n >= 0)
-    {
-        cout << "Chamada: " << n << endl;;
-        cout << "Chamada Vetor: " << vet[n] << endl;
-        *vet = *vet + 5;
-        soma(n-1, vet);
-    }
+    if(n == 0)
+        return 0;
 
-    return *vet;
+    return soma(n-1, vet) + vet[n-1];
 }
 
 int main()
@@ -29,7 +23,7 @@ int main()
         cin >> vet[i];
     }
     float result;
-    result = soma(n-1, vet);
+    result = soma(n, vet);
 
     cout << "A soma e: " << result;
 
